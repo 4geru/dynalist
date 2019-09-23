@@ -1,4 +1,5 @@
 require "dynalist/version"
+require "dynalist/node"
 
 module Dynalist
   class Error < StandardError; end
