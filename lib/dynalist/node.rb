@@ -27,6 +27,15 @@ class Node
     @color_number = color
   end
 
+  def include(**query)
+    query.each do |key, value|
+      next if instance_variable_get("@#{key}") == value
+      return false
+    end
+
+    return true
+  end
+
   def color
     COLOR[@color_number]
   end

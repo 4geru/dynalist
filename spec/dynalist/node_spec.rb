@@ -27,4 +27,19 @@ RSpec.describe Node do
       is_expected.to eq(Time.mktime(2019, 03, 19, 10, 35, 35, 182000))
     end
   end
+
+  context '#include' do
+    subject { instance.include(document_id: 1, id: id) }
+    let(:instance) { Node.new(document_id: 1, id: 1) }
+
+    context 'when find id' do
+      let(:id) { 1 }
+      it { is_expected.to be_truthy }
+    end
+
+    context 'when not find id' do
+      let(:id) { 2 }
+      it { is_expected.to be_falsey }
+    end
+  end
 end
