@@ -19,9 +19,9 @@ RSpec.describe Node do
     end
   end
 
-  context '#updated_at' do
-    subject { instance.updated_at }
-    let(:instance) { Node.new(modified: 1552959335182) }
+  context '#created_at' do
+    subject { instance.created_at }
+    let(:instance) { Node.new(created: 1552959335182) }
 
     it do
       is_expected.to eq(Time.mktime(2019, 03, 19, 10, 35, 35, 182000))
