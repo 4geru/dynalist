@@ -20,7 +20,7 @@ class Node
     @note = note
     @created = created
     @modified = modified
-    @children = children
+    @children_ids = children
     @checked = checked
     @checkbox = checkbox
     @heading = heading
@@ -46,6 +46,10 @@ class Node
 
   def created_at
     to_time(@created)
+  end
+
+  def children
+    NodeTree.where(id: @children_ids)
   end
 
   private

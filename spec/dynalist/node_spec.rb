@@ -28,6 +28,20 @@ RSpec.describe Node do
     end
   end
 
+  context '#children' do
+    subject { instance.children }
+    before do
+      NodeTree.add(instance)
+      NodeTree.add(children)
+    end
+    let(:instance) { Node.new(children: [children.id]) }
+    let(:children) { Node.new(id: 2) }
+
+    it do
+      is_expected.to eq([children])
+    end
+  end
+
   context '#include' do
     subject { instance.include(document_id: 1, id: id) }
     let(:instance) { Node.new(document_id: 1, id: 1) }
