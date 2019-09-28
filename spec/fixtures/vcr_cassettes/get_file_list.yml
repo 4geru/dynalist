@@ -1,0 +1,124 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://dynalist.io/api/v1/file/list
+    body:
+      encoding: UTF-8
+      string: '{"token":"Ej7ORBNA225ahRCHg6m92OKFa0B8aQ4btFX59UlHL--hRKuIiT6LJ8VsV6OHLQ0_hmAcJAmY4wu5S7aKkklvaBk7f0KwGojZBXLrm2QbeDC9dEqQcAswW36PlsPJzfU0"}'
+    headers:
+      User-Agent:
+      - Faraday v0.16.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 28 Sep 2019 15:04:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '3270'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d5586b6616da71da61620790d04c570911569683062; expires=Sun, 27-Sep-20
+        15:04:22 GMT; path=/; domain=.dynalist.io; HttpOnly
+      Vary:
+      - Accept-Encoding
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 51d69c071ba9aedf-KIX
+    body:
+      encoding: ASCII-8BIT
+      string: '{"_code":"Ok","root_file_id":"nesgovWSyMh2FTzccvWfgFd-",
+        "files":[
+          {"id":"xT31mxRLUcuCFnlkMVQxbAtQ","title":"title01","type":"document","permission":4},
+          {"id":"7SVKDshb95STC1XpMrCkp_Mc","title":"title02","type":"document","permission":4},
+          {"id":"oMby1Vz6ynf62_VzlCIxkO8R","title":"title03","type":"folder","permission":4,"collapsed":true,"children":["IHfPK5dQoQVvMqNXcucZCbX7","IrEujgvZgN8tpt0xi_Xzm2ln","NwVIX7M5T0uzJGUV5mb3hp8R","qYvBXZ1-zUfrlYUne3m-6qez","GDFVRfQprr3BgO53AJnBJWVE","-GtKD20ag1pNTAxitgwc347w","xT31mxRLUcuCFnlkMVQxbAtQ","YgOUvv_3-KX8S1AcW5fU6SCU","akE8KEMTnv3Ng6z937IvW1ta","FKIXWXPsStDT2lUAC_x_Eytp","_-BBGEsPlPbp97FqiY8sMj1i","tl2rd4cMupE-ivSD5NShF4Zv","KAtq1hAQBe9qsI-uAOsS5jPR","D5BCWeu7qdxgFWfEAOIM5kYj","m8XCa4gzDqzHxC1lSByFuydM","0O24yVhqRx57Wj6QVyLSX_FW"]},
+          {"id":"erxyO_yfqNb9V1RygUu5bQQs","title":"title04","type":"document","permission":4},
+          {"id":"irF5WCXe8QQJ-NRvfGnZzLfL","title":"title05","type":"document","permission":4},
+          {"id":"nesgovWSyMh2FTzccvWfgFd-","title":"title06","type":"folder","permission":4,"collapsed":false,"children":["pnZblXTRuU3pE8FwHP1j3nv6","kfJQ6vCWy7yQxBcrsf0ysf2H","xXJW4xn4N1k3LYmPahvX3P4v","j5LH1LFQqzf0AWq3xMy7CSB3","ko3nw1YcoQKU_HZ9ryFkfEan","jVLiXLPeUEyoTflKN50HqQ7M","RdxxJNzh1DDEeKYdhm9CO2cI","SioLcUdz5szw1iVNodrObqhs","qPNS784g7vLx0XncLZ6CUQf1","oMby1Vz6ynf62_VzlCIxkO8R","bl2Nr-r4QrB8E53vH23pvi3h","PDeHMA2NkIZCSRpeUS_2ym2k","AJCZfNh_IAlreBoxaIU5RLSX","Ts3JXhIykmfetN_nVvXsxN9E","kChy0P9wAq2maXGC2xT8BYra","JK2KU5i1bbsawEKTuHlVNPCQ","IdzSi29cuX7GwhUvhPe6Q02G"]},
+          {"id":"DAz0fqDKo-dpEIhxMMHuPjG5","title":"title07","type":"document","permission":4},
+          {"id":"gxKEssvdMmP7e_rFD16fofyP","title":"title08","type":"document","permission":4},
+          {"id":"AJCZfNh_IAlreBoxaIU5RLSX","title":"title09","type":"folder","permission":4,"collapsed":true,"children":["R-ACaYHONYmYjy9btxc2SbT3","3YVuPvq-mBPbwtG2_049STYT","QpZRq3zvDVl7gy33s19_w7YX"]},
+          {"id":"qYvBXZ1-zUfrlYUne3m-6qez","title":"title10","type":"document","permission":4},
+          {"id":"m8XCa4gzDqzHxC1lSByFuydM","title":"title11","type":"document","permission":4},
+          {"id":"sES1TDOeg6ki4HRAq0_vr3gn","title":"title12","type":"document","permission":4},
+          {"id":"PLPs1UK4j5VX4Y_OVu75ubSd","title":"title13","type":"folder","permission":4,"collapsed":true,"children":["EGsU9la0hQTDx8gMyxa3G3J7"]},
+          {"id":"kChy0P9wAq2maXGC2xT8BYra","title":"title14","type":"folder","permission":4,"collapsed":false,"children":["BcWk-Vao1zxH0sWhlspz_ykD","sES1TDOeg6ki4HRAq0_vr3gn","zanWau-lIxxHFJhcDl7Xvi2S"]},
+          {"id":"pnZblXTRuU3pE8FwHP1j3nv6","title":"title15","type":"folder","permission":4,"collapsed":false,"children":["uj5PQPKLTLa53WeNm1Fe00S8","W52b3eDuQ2m57QAUkmEl2f-x","RTcnf0eXUvHjyd0tDnXH1wqX","NSfDpznAsgQ9_M6pp3lgUTz7"]},
+          {"id":"tl2rd4cMupE-ivSD5NShF4Zv","title":"title16","type":"document","permission":4},
+          {"id":"kfJQ6vCWy7yQxBcrsf0ysf2H","title":"title17","type":"document","permission":4},
+          {"id":"NwVIX7M5T0uzJGUV5mb3hp8R","title":"title18","type":"document","permission":4},
+          {"id":"BcWk-Vao1zxH0sWhlspz_ykD","title":"title19","type":"document","permission":4},
+          {"id":"IdzSi29cuX7GwhUvhPe6Q02G","title":"title20","type":"document","permission":4},
+          {"id":"VETSbE4mxFFHUyxEIYeydCLu","title":"title21","type":"document","permission":4},
+          {"id":"g-8JZ3BySx1rTir8WDwYwolu","title":"title22","type":"folder","permission":4,"collapsed":false,"children":["1gkpecHhRIEQkadVsNAGP--f"]},
+          {"id":"R-ACaYHONYmYjy9btxc2SbT3","title":"title23","type":"document","permission":4},
+          {"id":"PDeHMA2NkIZCSRpeUS_2ym2k","title":"title24","type":"folder","permission":4,"collapsed":true,"children":["wKdsbff6UIxsvH7G_tUJRWmo","DAz0fqDKo-dpEIhxMMHuPjG5","TLmBjzUcd5curMja7QCrJFx7","VuIYxUe4DxL40S2Zf25eLZIn","QZt7v2FR7QNBWh-8K6WyLTdC","fMF-bvyn1UGugaF7KvLC3kkA","94JjbDakGSE5SWOz6BsyXzx2","daXkcpVbTiKBsVGXih6pcdT1","adVNyEXfGyQ1lSHBBZ-vkW43","VETSbE4mxFFHUyxEIYeydCLu"]},
+          {"id":"j5LH1LFQqzf0AWq3xMy7CSB3","title":"title25","type":"document","permission":4},
+          {"id":"NSfDpznAsgQ9_M6pp3lgUTz7","title":"title26","type":"document","permission":4},
+          {"id":"zanWau-lIxxHFJhcDl7Xvi2S","title":"title27","type":"document","permission":4},
+          {"id":"M2CgWxwsCevRoH_YnYdNVMbD","title":"title28","type":"document","permission":4},
+          {"id":"uj5PQPKLTLa53WeNm1Fe00S8","title":"title29","type":"document","permission":4},
+          {"id":"TLmBjzUcd5curMja7QCrJFx7","title":"title31","type":"document","permission":4},
+          {"id":"JdpcF1y4q6_FZrAjtYd22L_S","title":"title32","type":"document","permission":4},
+          {"id":"FKIXWXPsStDT2lUAC_x_Eytp","title":"title33","type":"document","permission":4},
+          {"id":"GDFVRfQprr3BgO53AJnBJWVE","title":"title34","type":"document","permission":4},
+          {"id":"Ts3JXhIykmfetN_nVvXsxN9E","title":"title35","type":"folder","permission":4,"collapsed":false,"children":["irF5WCXe8QQJ-NRvfGnZzLfL","3kjv2umo9cU074WGP-6StqP5","gxKEssvdMmP7e_rFD16fofyP","BFRNrXq3yZhy2LoSB9FS2rPC","HgmJ07Fi8KXoKv-f60buSN-f","E2ThphZhER7j-7UIZXaR7wGn"]},
+          {"id":"SioLcUdz5szw1iVNodrObqhs","title":"title36","type":"folder","permission":4,"collapsed":true,"children":["g-8JZ3BySx1rTir8WDwYwolu"]},
+          {"id":"_-BBGEsPlPbp97FqiY8sMj1i","title":"title37","type":"document","permission":4},
+          {"id":"daXkcpVbTiKBsVGXih6pcdT1","title":"title38","type":"document","permission":4},
+          {"id":"0O24yVhqRx57Wj6QVyLSX_FW","title":"title39","type":"document","permission":4},
+          {"id":"1gkpecHhRIEQkadVsNAGP--f","title":"title40","type":"document","permission":4},
+          {"id":"qPNS784g7vLx0XncLZ6CUQf1","title":"title41","type":"folder","permission":4,"collapsed":true,"children":["ZWAu5DTMO15I97wCNnfMEzeM","M2CgWxwsCevRoH_YnYdNVMbD"]},
+          {"id":"QYGKQW6qvBFarCj0IzZmBbr1","title":"title42","type":"document","permission":4},
+          {"id":"IHfPK5dQoQVvMqNXcucZCbX7","title":"title43","type":"document","permission":4},
+          {"id":"jVLiXLPeUEyoTflKN50HqQ7M","title":"title44","type":"document","permission":4},
+          {"id":"VuIYxUe4DxL40S2Zf25eLZIn","title":"title45","type":"document","permission":4},
+          {"id":"QZt7v2FR7QNBWh-8K6WyLTdC","title":"title46","type":"document","permission":4},
+          {"id":"adVNyEXfGyQ1lSHBBZ-vkW43","title":"title47","type":"document","permission":4},
+          {"id":"RTcnf0eXUvHjyd0tDnXH1wqX","title":"title48","type":"document","permission":4},
+          {"id":"bl2Nr-r4QrB8E53vH23pvi3h","title":"title49","type":"folder","permission":4,"collapsed":true,"children":["erxyO_yfqNb9V1RygUu5bQQs","pE7GgRWTqtFxXf2rVcTsi8VE","ohIx-Gwq4Lwf1718JOfPHTYH","QYGKQW6qvBFarCj0IzZmBbr1","PLPs1UK4j5VX4Y_OVu75ubSd"]},
+          {"id":"ko3nw1YcoQKU_HZ9ryFkfEan","title":"title50","type":"document","permission":4},
+          {"id":"EGsU9la0hQTDx8gMyxa3G3J7","title":"title51","type":"document","permission":4},
+          {"id":"YgOUvv_3-KX8S1AcW5fU6SCU","title":"title52","type":"document","permission":4},
+          {"id":"3YVuPvq-mBPbwtG2_049STYT","title":"title53","type":"document","permission":4},
+          {"id":"ohIx-Gwq4Lwf1718JOfPHTYH","title":"title54","type":"document","permission":4},
+          {"id":"W52b3eDuQ2m57QAUkmEl2f-x","title":"title55","type":"document","permission":4},
+          {"id":"KAtq1hAQBe9qsI-uAOsS5jPR","title":"title56","type":"document","permission":4},
+          {"id":"ZWAu5DTMO15I97wCNnfMEzeM","title":"title57","type":"document","permission":4},
+          {"id":"wKdsbff6UIxsvH7G_tUJRWmo","title":"title58","type":"document","permission":4},
+          {"id":"94JjbDakGSE5SWOz6BsyXzx2","title":"title59","type":"document","permission":4},
+          {"id":"IrEujgvZgN8tpt0xi_Xzm2ln","title":"title60","type":"document","permission":4},
+          {"id":"PQNTXgzqnjJ1c6t-OA2_aTKZ","title":"title61","type":"document","permission":4},
+          {"id":"D5BCWeu7qdxgFWfEAOIM5kYj","title":"title62","type":"document","permission":4},
+          {"id":"QpZRq3zvDVl7gy33s19_w7YX","title":"title63","type":"document","permission":4},
+          {"id":"ckqKDOYFP-YYGiQoAtBP7AV4","title":"title64","type":"folder","permission":4,"collapsed":true,"children":["CeK4CGLuvuiZLemCd75oZJKG"]},
+          {"id":"akE8KEMTnv3Ng6z937IvW1ta","title":"title65","type":"document","permission":4},
+          {"id":"fMF-bvyn1UGugaF7KvLC3kkA","title":"title66","type":"document","permission":4},
+          {"id":"HgmJ07Fi8KXoKv-f60buSN-f","title":"title67","type":"document","permission":4},
+          {"id":"h9t5S2zUxPfRQRx76qlI-b5S","title":"title68","type":"document","permission":4},
+          {"id":"pE7GgRWTqtFxXf2rVcTsi8VE","title":"title69","type":"document","permission":4},
+          {"id":"xXJW4xn4N1k3LYmPahvX3P4v","title":"title60","type":"document","permission":4},
+          {"id":"RdxxJNzh1DDEeKYdhm9CO2cI","title":"title71","type":"folder","permission":4,"collapsed":true,"children":["7SVKDshb95STC1XpMrCkp_Mc","JdpcF1y4q6_FZrAjtYd22L_S","h9t5S2zUxPfRQRx76qlI-b5S","PQNTXgzqnjJ1c6t-OA2_aTKZ","ckqKDOYFP-YYGiQoAtBP7AV4"]},
+          {"id":"CeK4CGLuvuiZLemCd75oZJKG","title":"title72","type":"document","permission":2},
+          {"id":"3kjv2umo9cU074WGP-6StqP5","title":"title73","type":"document","permission":4},
+          {"id":"JK2KU5i1bbsawEKTuHlVNPCQ","title":"title74","type":"document","permission":4},
+          {"id":"-GtKD20ag1pNTAxitgwc347w","title":"title75","type":"document","permission":4},
+          {"id":"BFRNrXq3yZhy2LoSB9FS2rPC","title":"title76","type":"document","permission":4},
+          {"id":"E2ThphZhER7j-7UIZXaR7wGn","title":"title77","type":"document","permission":4}]}'
+    http_version: 
+  recorded_at: Sat, 28 Sep 2019 15:04:23 GMT
+recorded_with: VCR 5.0.0

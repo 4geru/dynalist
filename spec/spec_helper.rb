@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "support/vcr"
 require "dynalist"
 
 RSpec.configure do |config|
