@@ -15,7 +15,7 @@ RSpec.describe Node do
     let(:instance) { Node.new(modified: 1552959309804) }
 
     it do
-      is_expected.to eq(Time.mktime(2019, 03, 19, 10, 35, 9, 804000))
+      is_expected.to eq(Time.utc(2019, 03, 19, 01, 35, 9, 804000))
     end
   end
 
@@ -24,7 +24,7 @@ RSpec.describe Node do
     let(:instance) { Node.new(created: 1552959335182) }
 
     it do
-      is_expected.to eq(Time.mktime(2019, 03, 19, 10, 35, 35, 182000))
+      is_expected.to eq(Time.utc(2019, 03, 19, 01, 35, 35, 182000))
     end
   end
 

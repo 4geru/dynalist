@@ -55,6 +55,6 @@ class Node
   private
 
   def to_time(time)
-    Time.at(time / 1000, time % 1000 * 1000)
+    Time.at(time / 1000, time % 1000 * 1000).utc
   end
 end
