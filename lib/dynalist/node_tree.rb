@@ -30,7 +30,6 @@ class NodeTree
         if value.kind_of? Array
           value.any? { |v| node.include(**{key => v}) }
         else
-          p node.include(**{key => value})
           node.include(**{key => value})
         end
       end
