@@ -10,6 +10,9 @@ require "dynalist/folder"
 require "dynalist/base_api_client"
 require "dynalist/node_api_client"
 
+require "dotenv"
+Dotenv.load
+
 module Dynalist
   class Error < StandardError; end
   # Your code goes here...
