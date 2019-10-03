@@ -6,6 +6,15 @@ class FileTree
   include Singleton
 
   @@files = []
+  @@root_id = nil
+
+  def root_id=(root_id)
+    @@root_id = root_id
+  end
+
+  def root_id
+    @@root_id
+  end
 
   def files
     @@files
