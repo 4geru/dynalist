@@ -6,13 +6,15 @@ class FileApiClient < BaseApiClient
     response = @conn.post "#{@base}file/list", {token: @token}.to_json
     json = JSON.parse(response.body, symbolize_names: true)
     FileTree.instance.root_id = json[:root_file_id]
-    json[:files].each do |file|
+    json[:files].map do |file|
       instance = if file[:type] == 'folder'
           Folder.new(file)
         else
           Document.new(file)
         end
       FileTree.add(instance)
+
+      instance
     end
   end
 

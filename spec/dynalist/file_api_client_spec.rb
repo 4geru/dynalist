@@ -9,6 +9,8 @@ RSpec.describe FileApiClient do
         VCR.use_cassette("get_file") do
           expect(subject.count).to eq 2
           expect(FileTree.instance.files.count).to eq 2
+          expect(subject[0]).to be_a_kind_of Document
+          expect(subject[1]).to be_a_kind_of Folder
           expect(FileTree.where(type: 'document').count).to eq 1
           expect(FileTree.where(type: 'folder').count).to eq 1
         end
