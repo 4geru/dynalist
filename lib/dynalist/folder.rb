@@ -10,4 +10,8 @@ class Folder < BaseFile
   def collapsed?
     @collapsed
   end
+
+  def children
+    FileTree.where(id: @children_ids)
+  end
 end

@@ -27,8 +27,18 @@ RSpec.describe Folder do
       end
     end
 
-    describe '#children' do
-      
+    context '#children' do
+    subject { instance.children }
+    before do
+      FileTree.add(instance)
+      FileTree.add(children)
     end
+    let(:instance) { Folder.new(children: [children.id]) }
+    let(:children) { Folder.new(id: 2) }
+
+    it do
+      is_expected.to eq([children])
+    end
+  end
   end
 end
