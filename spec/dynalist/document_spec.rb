@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Document do
+  before { FileTree.clear }
+
   describe "Initialize" do
     context 'delegate to parent class' do
       subject { instance }

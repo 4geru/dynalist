@@ -34,8 +34,8 @@ RSpec.describe Node do
       NodeTree.add(instance)
       NodeTree.add(children)
     end
-    let(:instance) { Node.new(children: [children.id]) }
-    let(:children) { Node.new(id: 2) }
+    let(:instance) { Node.new(children: ['2']) }
+    let!(:children) { Node.new(id: '2') }
 
     it do
       is_expected.to eq([children])
@@ -43,7 +43,7 @@ RSpec.describe Node do
   end
 
   context '#include' do
-    subject { instance.include(file_id: 1, id: id) }
+    subject { instance.include(file_id: 1, node_id: id) }
     let(:instance) { Node.new(file_id: 1, id: 1) }
 
     context 'when find id' do
@@ -55,5 +55,14 @@ RSpec.describe Node do
       let(:id) { 2 }
       it { is_expected.to be_falsey }
     end
+  end
+
+  context '#attributes' do
+    subject { instance.attributes }
+    let(:instance) { Node.new() }
+
+    it { expect(subject.keys).to match_array(%i[file_id node_id content note created modified children_ids checked checkbox heading color_number])}
+
+
   end
 end

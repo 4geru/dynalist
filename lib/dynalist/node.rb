@@ -11,11 +11,11 @@ class Node
     6 => :purple
   }.freeze
 
-  attr_reader :file_id, :id, :content, :note, :children, :checked, :checkbox, :heading
+  attr_reader :file_id, :node_id, :content, :note, :children, :checked, :checkbox, :heading
 
   def initialize(file_id: nil, id: nil, content: nil, note: nil, created: nil, modified: nil, children: [], checked: false, checkbox: false, heading: 0, color: 0)
     @file_id = file_id
-    @id = id
+    @node_id = id
     @content = content
     @note = note
     @created = created
@@ -49,7 +49,13 @@ class Node
   end
 
   def children
-    NodeTree.where(id: @children_ids)
+    NodeTree.where(node_id: @children_ids)
+  end
+
+  def attributes
+    instance_variables.map do |key|
+      [key[1..-1].to_sym, instance_variable_get(key)]
+    end.to_h
   end
 
   private

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Folder do
+  before { FileTree.clear }
   describe "Initialize" do
     context 'delegate to parent class' do
       subject { instance }

@@ -20,9 +20,9 @@ RSpec.describe NodeTree do
   end
 
   context '.find_by' do
-    subject { NodeTree.find_by(document_id: 1, id: 1) }
+    subject { NodeTree.find_by(file_id: 1, node_id: 1) }
     let(:instance) { NodeTree.instance }
-    let(:node) { Node.new(document_id: 1, id: 1) }
+    let(:node) { Node.new(file_id: 1, id: 1) }
     before do
       NodeTree.add([node])
     end
@@ -39,14 +39,14 @@ RSpec.describe NodeTree do
     end
 
     context 'when query is value' do
-      subject { NodeTree.where(id: 1) }
+      subject { NodeTree.where(node_id: 1) }
       let(:expected) { [Node.new(id: 1)] }
       let(:dummy) { [Node.new(id: 2), Node.new(id: nil)] }
       it { is_expected.to eq(expected) }
     end
 
     context 'when query is array' do
-      subject { NodeTree.where(id: [1, 2]) }
+      subject { NodeTree.where(node_id: [1, 2]) }
       let(:expected) { [Node.new(id: 1), Node.new(id: 2)] }
       let(:dummy) { [Node.new(id: 3), Node.new(id: nil)] }
       it { is_expected.to eq(expected) }
