@@ -3,10 +3,8 @@
 RSpec.describe NodeTree do
   before { NodeTree.clear }
   context '#initialize' do
-    let(:instance) { NodeTree.instance }
-
     context 'empty nodes' do
-      it { expect(instance.nodes).to be_empty }
+      it { expect(NodeTree.nodes).to be_empty }
     end
   end
 
@@ -17,7 +15,7 @@ RSpec.describe NodeTree do
     let(:nodes) { [Node.new, Node.new] }
 
     context 'empty nodes' do
-      it { expect{ NodeTree.add(nodes) }.to change{ NodeTree.instance.nodes.size }.from(0).to(2) }
+      it { expect{ NodeTree.add(nodes) }.to change{ NodeTree.nodes.size }.from(0).to(2) }
     end
   end
 
