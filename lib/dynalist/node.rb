@@ -11,10 +11,10 @@ class Node
     6 => :purple
   }.freeze
 
-  attr_reader :document_id, :id, :content, :note, :children, :checked, :checkbox, :heading
+  attr_reader :file_id, :id, :content, :note, :children, :checked, :checkbox, :heading
 
-  def initialize(document_id: nil, id: nil, content: nil, note: nil, created: nil, modified: nil, children: [], checked: false, checkbox: false, heading: 0, color: 0)
-    @document_id = document_id
+  def initialize(file_id: nil, id: nil, content: nil, note: nil, created: nil, modified: nil, children: [], checked: false, checkbox: false, heading: 0, color: 0)
+    @file_id = file_id
     @id = id
     @content = content
     @note = note

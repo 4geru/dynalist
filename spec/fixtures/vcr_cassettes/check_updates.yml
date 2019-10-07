@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://dynalist.io/api/v1/doc/check_for_updates
+    body:
+      encoding: UTF-8
+      string: '{"token":"Ej7ORBNA225ahRCHg6m92OKFa0B8aQ4btFX59UlHL--hRKuIiT6LJ8VsV6OHLQ0_hmAcJAmY4wu5S7aKkklvaBk7f0KwGojZBXLrm2QbeDC9dEqQcAswW36PlsPJzfU0","file_ids":["DAz0fqDKo-dpEIhxMMHuPjG5","7SVKDshb95STC1XpMrCkp_Mc"]}'
+    headers:
+      User-Agent:
+      - Faraday v0.16.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 07 Oct 2019 13:28:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '107'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=de80f1136aaadce3b66e0a1c59d573e511570454929; expires=Tue, 06-Oct-20
+        13:28:49 GMT; path=/; domain=.dynalist.io; HttpOnly
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5220386c999dd9a8-SIN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"_code":"Ok","versions":{"7SVKDshb95STC1XpMrCkp_Mc":21,"DAz0fqDKo-dpEIhxMMHuPjG5":18}}'
+    http_version: 
+  recorded_at: Mon, 07 Oct 2019 13:28:49 GMT
+recorded_with: VCR 5.0.0

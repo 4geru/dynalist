@@ -7,7 +7,7 @@ class NodeTree
 
   @@nodes = []
 
-  def nodes
+  def self.nodes
     @@nodes
   end
 

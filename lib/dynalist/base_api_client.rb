@@ -2,9 +2,9 @@
 require 'json'
 
 class BaseApiClient
-  def initialize
+  def initialize(token = nil)
     @conn = Faraday.new(:url => 'https://dynalist.io/')
     @base = 'api/v1/'
-    @token = ENV['TOKEN']
+    @token = token || ENV['TOKEN']
   end
 end

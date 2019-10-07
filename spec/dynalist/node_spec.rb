@@ -43,8 +43,8 @@ RSpec.describe Node do
   end
 
   context '#include' do
-    subject { instance.include(document_id: 1, id: id) }
-    let(:instance) { Node.new(document_id: 1, id: 1) }
+    subject { instance.include(file_id: 1, id: id) }
+    let(:instance) { Node.new(file_id: 1, id: 1) }
 
     context 'when find id' do
       let(:id) { 1 }
