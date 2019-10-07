@@ -35,4 +35,77 @@ RSpec.describe NodeApiClient do
       end
     end
   end
+
+  describe 'Inside class' do
+    describe 'Insert' do
+      describe '#to_query' do
+        subject { NodeApiClient::Insert.new(parent_node, node).to_query }
+        let(:parent_node) { Node.new(id: 'root') }
+        let(:node) { Node.new(content: 'content body') }
+
+        it do
+          is_expected.to eq(
+            Node.new.attributes.merge({
+              action: "insert",
+              parent_id: parent_node.node_id,
+              index: 0,
+              content: node.content
+            })
+          )
+        end
+      end
+    end
+
+    describe 'Edit' do
+      describe '#to_query' do
+        subject { NodeApiClient::Edit.new(node).to_query }
+        let(:node) { Node.new(id: 'iy2a5EscizQnqZZDWcCJW_g6', content: 'content body') }
+
+        it do
+          is_expected.to eq(
+            Node.new.attributes.merge({
+              action: "edit",
+              node_id: node.node_id,
+              content: node.content
+            })
+          )
+        end
+      end
+    end
+
+    describe 'Move' do
+      describe '#to_query' do
+        subject { NodeApiClient::Move.new(parent_node, node).to_query }
+        let(:parent_node) { Node.new(id: 'root_id') }
+        let(:node) { Node.new(id: 'iy2a5EscizQnqZZDWcCJW_g6', content: 'content body') }
+
+        it do
+          is_expected.to eq(
+            {
+              action: "move",
+              parent_id: parent_node.node_id,
+              node_id: node.node_id,
+              index: 0
+            }
+          )
+        end
+      end
+    end
+
+    describe 'Delete' do
+      describe '#to_query' do
+        subject { NodeApiClient::Delete.new(node).to_query }
+        let(:node) { Node.new(id: 'iy2a5EscizQnqZZDWcCJW_g6') }
+
+        it do
+          is_expected.to eq(
+            {
+              action: "delete",
+              node_id: node.node_id
+            }
+          )
+        end
+      end
+    end
+  end
 end

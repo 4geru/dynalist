@@ -16,7 +16,7 @@ class NodeApiClient < BaseApiClient
   end
 
   class Insert
-    def initialize(parent_node, node, index = nil)
+    def initialize(parent_node, node, index = 0)
       @parent_node = parent_node
       @node = node
       @index = index
@@ -25,7 +25,7 @@ class NodeApiClient < BaseApiClient
     def to_query
       {
         action: "insert",
-        parent_id: @parent_node.id,
+        parent_id: @parent_node.node_id,
         index: @index
       }.merge(@node.attributes)
     end
@@ -39,7 +39,7 @@ class NodeApiClient < BaseApiClient
     def to_query
       {
         action: "edit",
-        node_id: @node.id
+        node_id: @node.node_id
       }.merge(@node.attributes)
     end
   end
@@ -54,7 +54,8 @@ class NodeApiClient < BaseApiClient
     def to_query
       {
         action: "move",
-        parent_id: @parent_node.id,
+        parent_id: @parent_node.node_id,
+        node_id: @node.node_id,
         index: @index
       }
     end
@@ -68,7 +69,7 @@ class NodeApiClient < BaseApiClient
     def to_query
       {
         action: "delete",
-        node_id: @node.id
+        node_id: @node.node_id
       }
     end
   end
