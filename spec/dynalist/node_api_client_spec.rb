@@ -16,4 +16,23 @@ RSpec.describe NodeApiClient do
       end
     end
   end
+
+  context '#check_updates' do
+    subject { NodeApiClient.new.check_updates(documents) }
+    let(:documents) do
+      [
+        Document.new(id: 'DAz0fqDKo-dpEIhxMMHuPjG5'),
+        Document.new(id: '7SVKDshb95STC1XpMrCkp_Mc'),
+      ]
+    end
+
+    it do
+      VCR.use_cassette("check_updates") do
+        results = subject
+        document_ids = documents.map(&:id)
+        expect(results.keys).to match_array document_ids
+        expect(results.count).to eq(documents.count)
+      end
+    end
+  end
 end
