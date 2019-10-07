@@ -14,4 +14,62 @@ class NodeApiClient < BaseApiClient
     res = @conn.post "#{@base}doc/check_for_updates", {token: @token, file_ids: document_ids}.to_json
     JSON.parse(res.body)['versions']
   end
+
+  class Insert
+    def initialize(parent_node, node, index = nil)
+      @parent_node = parent_node
+      @node = node
+      @index = index
+    end
+
+    def to_query
+      {
+        action: "insert",
+        parent_id: @parent_node.id,
+        index: @index
+      }.merge(@node.attributes)
+    end
+  end
+
+  class Edit
+    def initialize(node)
+      @node = node
+    end
+
+    def to_query
+      {
+        action: "edit",
+        node_id: @node.id
+      }.merge(@node.attributes)
+    end
+  end
+
+  class Move
+    def initialize(parent_node, node, index = 0)
+      @parent_node = parent_node
+      @node = node
+      @index = index
+    end
+
+    def to_query
+      {
+        action: "move",
+        parent_id: @parent_node.id,
+        index: @index
+      }
+    end
+  end
+
+  class Delete
+    def initialize(node)
+      @node = node
+    end
+
+    def to_query
+      {
+        action: "delete",
+        node_id: @node.id
+      }
+    end
+  end
 end
