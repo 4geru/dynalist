@@ -2,7 +2,10 @@
 require 'json'
 
 class NodeApiClient < BaseApiClient
-  def get_file_list
-    @conn.post "#{@base}file/list", {token: @token}.to_json
+  def read(document)
+    res = @conn.post "#{@base}doc/read", {token: @token, file_id: document.id}.to_json
+    JSON.parse(res.body, symbolize_names: true)[:nodes].map{ |node| node }
+    nodes = JSON.parse(res.body, symbolize_names: true)[:nodes].map{ |node| Node.new(node.merge(file_id: document.id)) }
+    NodeTree.add(nodes)
   end
 end
