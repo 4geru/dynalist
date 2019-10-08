@@ -29,10 +29,78 @@ RSpec.describe NodeApiClient do
     it do
       VCR.use_cassette("check_updates") do
         results = subject
-        document_ids = documents.map(&:id)
+        document_ids = documents.map{|d| d.id.to_sym }
         expect(results.keys).to match_array document_ids
         expect(results.count).to eq(documents.count)
       end
+    end
+  end
+
+  context '#edit' do
+    subject { NodeApiClient.new.edit(document, queries) }
+    around(:example) do |example|
+      VCR.use_cassette("document_#{query_name}") do
+        example.run
+      end
+    end
+
+    shared_context 'success to api request' do
+      it { is_expected.to eql [] }
+    end
+
+    let(:document) { Document.new(id: 'DAz0fqDKo-dpEIhxMMHuPjG5') }
+    let(:root_node) { Node.new(id: 'root') }
+
+    context 'insert query' do
+      let(:query_name) { 'insert' }
+      let(:queries) do
+        [ NodeApiClient::Insert.new(root_node, node) ]
+      end
+
+      let(:node) do
+        Node.new(content: 'new content')
+      end
+
+      it { is_expected.not_to eql [] }
+    end
+
+    context 'edit query' do
+      let(:query_name) { 'edit' }
+      let(:queries) do
+        [ NodeApiClient::Edit.new(node) ]
+      end
+
+      let(:node) do
+        Node.new(id: '0KXgB-e3dRc-dpEPXCfHtoOW', checked: true, content: 'okok')
+      end
+
+      include_context 'success to api request'
+    end
+
+    context 'move query' do
+      let(:query_name) { 'move' }
+      let(:queries) do
+        [ NodeApiClient::Move.new(root_node, node) ]
+      end
+
+      let(:node) do
+        Node.new(id: 'mQkeYMwEjRf9PTyJkUddVuN1', checked: true)
+      end
+
+      include_context 'success to api request'
+    end
+
+    context 'delete query' do
+      let(:query_name) { 'delete' }
+      let(:queries) do
+        [ NodeApiClient::Delete.new(node) ]
+      end
+
+      let(:node) do
+        Node.new(id: 'SDNpEM7h6HMwNu57MQvdkFxL')
+      end
+
+      include_context 'success to api request'
     end
   end
 
@@ -75,35 +143,41 @@ RSpec.describe NodeApiClient do
 
     describe 'Move' do
       describe '#to_query' do
-        subject { NodeApiClient::Move.new(parent_node, node).to_query }
-        let(:parent_node) { Node.new(id: 'root_id') }
-        let(:node) { Node.new(id: 'iy2a5EscizQnqZZDWcCJW_g6', content: 'content body') }
+        let(:query_name) { 'mew' }
+        let(:queries) do
+          subject { NodeApiClient::Move.new(parent_node, node).to_query }
+          let(:parent_node) { Node.new(id: 'root_id') }
+          let(:node) { Node.new(id: 'iy2a5EscizQnqZZDWcCJW_g6', content: 'content body') }
 
-        it do
-          is_expected.to eq(
-            {
-              action: "move",
-              parent_id: parent_node.node_id,
-              node_id: node.node_id,
-              index: 0
-            }
-          )
+          it do
+            is_expected.to eq(
+              {
+                action: "move",
+                parent_id: parent_node.node_id,
+                node_id: node.node_id,
+                index: 0
+              }
+            )
+          end
         end
       end
     end
 
     describe 'Delete' do
       describe '#to_query' do
-        subject { NodeApiClient::Delete.new(node).to_query }
-        let(:node) { Node.new(id: 'iy2a5EscizQnqZZDWcCJW_g6') }
+        let(:query_name) { 'mew' }
+        let(:queries) do
+          subject { NodeApiClient::Delete.new(node).to_query }
+          let(:node) { Node.new(id: 'iy2a5EscizQnqZZDWcCJW_g6') }
 
-        it do
-          is_expected.to eq(
-            {
-              action: "delete",
-              node_id: node.node_id
-            }
-          )
+          it do
+            is_expected.to eq(
+              {
+                action: "delete",
+                node_id: node.node_id
+              }
+            )
+          end
         end
       end
     end
