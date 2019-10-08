@@ -5,7 +5,7 @@ http_interactions:
     uri: https://dynalist.io/api/v1/doc/edit
     body:
       encoding: UTF-8
-      string: '{"token":"Ej7ORBNA225ahRCHg6m92OKFa0B8aQ4btFX59UlHL--hRKuIiT6LJ8VsV6OHLQ0_hmAcJAmY4wu5S7aKkklvaBk7f0KwGojZBXLrm2QbeDC9dEqQcAswW36PlsPJzfU0","file_id":"DAz0fqDKo-dpEIhxMMHuPjG5","changes":[{"action":"insert","parent_id":"root","index":0,"file_id":null,"node_id":null,"content":"new
+      string: '{"token":"TEST_DUMMY_TOKEN","file_id":"DAz0fqDKo-dpEIhxMMHuPjG5","changes":[{"action":"insert","parent_id":"root","index":0,"file_id":null,"node_id":null,"content":"new
         content","note":null,"created":null,"modified":null,"children_ids":[],"checked":false,"checkbox":false,"heading":0,"color_number":0}]}'
     headers:
       User-Agent:

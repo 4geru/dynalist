@@ -5,7 +5,7 @@ http_interactions:
     uri: https://dynalist.io/api/v1/doc/check_for_updates
     body:
       encoding: UTF-8
-      string: '{"token":"Ej7ORBNA225ahRCHg6m92OKFa0B8aQ4btFX59UlHL--hRKuIiT6LJ8VsV6OHLQ0_hmAcJAmY4wu5S7aKkklvaBk7f0KwGojZBXLrm2QbeDC9dEqQcAswW36PlsPJzfU0","file_ids":["DAz0fqDKo-dpEIhxMMHuPjG5","7SVKDshb95STC1XpMrCkp_Mc"]}'
+      string: '{"token":"TEST_DUMMY_TOKEN","file_ids":["DAz0fqDKo-dpEIhxMMHuPjG5","7SVKDshb95STC1XpMrCkp_Mc"]}'
     headers:
       User-Agent:
       - Faraday v0.16.1

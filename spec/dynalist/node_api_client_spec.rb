@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.describe NodeApiClient do
+  before do
+    allow(ENV).to receive(:[]).and_call_original
+    allow(ENV).to receive(:[]).with('DYNALIST_TOKEN').and_return('TEST_DUMMY_TOKEN')
+  end
+
   context '#read' do
     subject { NodeApiClient.new.read(document) }
     let(:document) { Document.new(id: 'DAz0fqDKo-dpEIhxMMHuPjG5') }
