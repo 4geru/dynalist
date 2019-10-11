@@ -16,5 +16,4 @@ Dotenv.load
 
 module Dynalist
   class Error < StandardError; end
-  # Your code goes here...
 end

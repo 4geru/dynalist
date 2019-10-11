@@ -4,7 +4,9 @@ require 'json'
 class FileApiClient < BaseApiClient
   def get_file
     response = @conn.post "#{@base}file/list", {token: @token}.to_json
+    check_response!(response)
     json = JSON.parse(response.body, symbolize_names: true)
+
     FileTree.instance.root_id = json[:root_file_id]
     json[:files].map do |file|
       instance = if file[:type] == 'folder'
@@ -21,7 +23,8 @@ class FileApiClient < BaseApiClient
   def move_file(queries)
     changes = queries.map(&:to_query)
     response = @conn.post "#{@base}file/edit", {token: @token, changes: changes}.to_json
-    JSON.parse(response.body)["results"]
+    check_response!(response)
+    JSON.parse(response.body, symbolize_names: true)[:results]
   end
 
   class Edit
