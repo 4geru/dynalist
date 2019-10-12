@@ -1,12 +1,11 @@
 # Dynalist
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dynalist`. To experiment with that code, run `bin/console` for an interactive prompt.
+Dynalist is outlining app. there can write as tree structure and simply to control your ideas.
 
-TODO: Delete this and the text above, and describe your gem
+This is dynalist api client gem. support dynalist api version 1. [Api document](https://apidocs.dynalist.io/)
 
 ## Installation
 
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'dynalist'
@@ -22,7 +21,80 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### setup
+
+### File-level Api
+
+#### Access to file information
+
+File information store FileTree class. FileTree find file to use find_by, where.
+
+```
+# Get files information.
+FileApiClient.get_files
+
+document = FileTree.where(title: 'document')
+# => [#<Document: ... title: 'document'>]
+
+folder = FileTree.find_by(title: 'diary')
+# => [#<Folder: ... title: 'diary'>]
+```
+
+#### Update files
+
+Edit query update document or folder title.
+Move query change to file move down parent folder.
+
+Update succeeded when return true, and failed return false.
+
+```
+queries = [
+    FileApiClient::Edit.new(document, 'new_doument_title'),
+    FileApiClient::Move.new(document, folder)
+  ]
+
+FileApiClient.new.move_file(queries)
+# => [true, true]
+```
+
+### Document-level Api
+
+#### Get information
+
+Document information access read method, and stored NodeTree class. NodeTree have find_by and where class.
+
+```
+NodeApiClient.new.read(document)
+nodes = NodeTree.where(context: ['context01', 'some message'])
+```
+
+### Check update
+
+Check document update versions.
+
+```
+NodeApiClient.new.check_updates([document])
+# => [document_id_01: 12, document_id_02: 32]
+```
+
+### Update document
+
+Support Insert, Move, Edit, Delete queries.
+Return new node ids.
+
+```
+insert_node = Node.new(context: 'new message')
+
+queries = [
+  NodeApiClient::Insert.new(root_node, insert_node),
+  NodeApiClient::Move.new(root_node, move_node),
+  NodeApiClient::Edit.new(edit_node),
+  NodeApiClient::Delete.new(delete_node)
+]
+
+NodeApiClient.new.edit(document, queries)
+# => ['insert_node_id']
+```
 
 ## Development
 
@@ -32,7 +104,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dynalist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/4geru/dynalist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +112,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Dynalist project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/dynalist/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Dynalist project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/4geru/dynalist/blob/master/CODE_OF_CONDUCT.md).
